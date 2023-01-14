@@ -1,5 +1,36 @@
 ﻿<!DOCTYPE html>
 <html>
-	<h1>I Love You</h1>
-	<h1>Zerlindaaaa</h1>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,700;0,900;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
+		<title>Apaaja</title>
+<style>body{font-family:"Source Code Pro", "Roboto", sans-serif;}
+button{background-color:#A6D993;color:white;font-weight:bold;
+	border-style:none;border-radius:20px !important;
+	width:100px;height:50px;transition: ease width height;
+	transition-duration:1s;margin:20px;}
+button:hover{width:110px;height:55px;transition:ease width height;transition-duration: 1s;}
+button:active{background-color:#D9BB9C;}
+#play{padding: 3vh 3vw}</style>
+	</head>
+	<body>
+		<header style="background-color:rgba(100,100,100,0.5);text-align:center;">
+			<font style="font-weight:light;font-size:1.5rem;text-align:center;margin:10px;">Test</font>
+		</header>
+	<div id="play">
+	<h1 id="text1">HI THERE :P</h1>
+	<button id="butt1">HI JUGA</button>
+	</div>
+	<script>
+		var num=0;
+		document.getElementById("butt1").addEventListener("click", nextdetect);
+		function nextdetect(){
+			num=num+1;
+			if(num===1){document.getElementById("play").innerHTML=document.getElementById("play").innerHTML + "<button id='butt2'></button>";document.getElementById("text1").innerHTML="Hmm, Kamu Zerlinda Bukan? >:D";document.getElementById("butt1").innerHTML="Iya dong";document.getElementById("butt2").innerHTML="Bukann";}
+				}
+	</script>
+	</body>
 </html>
