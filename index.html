@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,700;0,900;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
 		<title>Apaaja</title>
-<style>body{font-family:"Source Code Pro", "Roboto", sans-serif;}
-button{background-color:#A6D993;color:white;font-weight:bold;
+<style>*{box-sizing:border-box;}body{font-family:"Source Code Pro", "Roboto", sans-serif;margin:0;padding:0;}
+button{background-color:rgba(92,195,255,0.6);color:white;font-weight:bold;
 	border-style:none;border-radius:20px !important;
 	width:100px;height:50px;transition: ease width height;
 	transition-duration:1s;margin:20px;}
@@ -16,21 +16,47 @@ button:hover{width:110px;height:55px;transition:ease width height;transition-dur
 button:active{background-color:#D9BB9C;}
 #play{padding: 3vh 3vw}</style>
 	</head>
-	<body>
+	<body id="body1">
 		<header style="background-color:rgba(100,100,100,0.5);text-align:center;">
-			<font style="font-weight:light;font-size:1.5rem;text-align:center;margin:10px;">Test</font>
+			<font style="font-weight:light;font-size:1.5rem;text-align:center;margin:10px;">Satriaadhyaksa</font>
 		</header>
 	<div id="play">
-	<h1 id="text1">HI THERE :P</h1>
-	<button id="butt1">HI JUGA</button>
+		<div id="input1" style="background-color:grey;width=10vw;height:100px;" contentEditable="true">ketik password...</div>
 	</div>
 	<script>
 		var num=0;
+		var next=false;
+		var home=false;
+		const myInterval=setInterval(function(){if(document.getElementById("input1").innerHTML=="fayza"){changeToHome();home=true;}},1000);
+		if(home===true){clearInterval(myInterval);}
+		function changeToHome(){
+		document.getElementById('play').innerHTML = "<h1 id='text1'>HI THERE :P</h1><button id='butt1'>HI JUGA</button>";
 		document.getElementById("butt1").addEventListener("click", nextdetect);
+		}
 		function nextdetect(){
-			num=num+1;
-			if(num===1){document.getElementById("play").innerHTML=document.getElementById("play").innerHTML + "<button id='butt2'></button>";document.getElementById("text1").innerHTML="Hmm, Kamu Zerlinda Bukan? >:D";document.getElementById("butt1").innerHTML="Iya dong";document.getElementById("butt2").innerHTML="Bukann";}
+					if(next===false){num=num+1;}
+			next=true;
+			console.log(num);
+				if(num===1 && next===true){
+					document.getElementById("play").innerHTML=document.getElementById("play").innerHTML + "<button id='butt2'></button>";
+					document.getElementById("text1").innerHTML="Hmm, Fayza? :P";
+					document.getElementById("butt1").innerHTML="Iya dong";
+					document.getElementById("butt1").addEventListener("click",nextdetect);
+					document.getElementById("butt2").innerHTML="Bukann";
+					document.getElementById("butt2").addEventListener("click", function(){(document.getElementById("butt2").style.marginTop=="") ? (document.getElementById('butt2').style.marginTop="100px"):(document.getElementById("butt2").style.marginTop=parseInt(document.getElementById("butt2").style.marginTop)+parseInt("100") + "px");});next=false;
 				}
+				if(num===2 && next===true){
+											document.getElementById("body1").style.backgroundColor = "#222222";
+											document.getElementById("body1").style.color = "white";
+											document.getElementById("text1").innerHTML = "mpk babuuuu";
+											document.getElementById("butt1").innerHTML = "Emang";
+							document.getElementById("butt1").addEventListener("click",function(){window.alert("HAHAHA")});
+											document.getElementById("butt2").innerHTML = "GA YA SIALANN";
+											document.getElementById("butt2").addEventListener("click", function(){
+											(document.getElementById("butt2").style.marginTop=="") ? (document.getElementById('butt2').style.marginTop="100px"):(document.getElementById("butt2").style.marginTop=parseInt(document.getElementById("butt2").style.marginTop)+parseInt("100") + "px");
+											});next=false;
+								}
+		}
 	</script>
 	</body>
 </html>
