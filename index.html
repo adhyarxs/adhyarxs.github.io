@@ -27,7 +27,10 @@ button:active{background-color:#D9BB9C;}
 		var num=0;
 		var next=false;
 		var home=false;
-		const myInterval=setInterval(function(){if(document.getElementById("input1").innerHTML=="fayza"){changeToHome();home=true;}},1000);
+		var documentelementbyfayza = document.getElementById("input1").innerHTML;
+		var doccheckres = documentelementbyfayza.includes("fayza");
+		
+		const myInterval=setInterval(function(){documentelementbyfayza= document.getElementById("input1").innerHTML;doccheckres=documentelementbyfayza.includes("fayza");console.log(doccheckres);console.log(documentelementbyfayza);if(doccheckres===true){changeToHome();home=true;}},1000);
 		if(home===true){clearInterval(myInterval);}
 		function changeToHome(){
 		document.getElementById('play').innerHTML = "<h1 id='text1'>HI THERE :P</h1><button id='butt1'>HI JUGA</button>";
