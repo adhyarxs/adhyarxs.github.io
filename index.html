@@ -63,36 +63,44 @@
             from{opacity:0;}to{opacity:1;}
         }
         @keyframes fadingNrise2rem{
-            from{opacity:0;font-size:1.8rem;}to{opacity:1;font-size:2rem;}
+            0%{opacity:0;font-size:1.8rem;}50%{opacity:1;font-size:2rem;}100%{opacity:0;}
         }
+        @keyframes slideIn{from{transform:translate(5vw,5vh);}to{transform:translate(0,0);}}
         </style>
 </head>
 <body class="bgDefault colWhite">
-    <div class="absolute" style="top:2rem;left:2rem;"><font class="FclimateCrisis">Archi</font><font style="opacity:0.1;" class="FclimateCrisis">-</font><font class="FcrimsonPro">Projects</font></div>
-    <main id="mainBoxContainer">
+    <div class="absolute" style="top:2rem;left:2rem;">
+        <font class="FclimateCrisis">Archi</font>
+        <font style="opacity:0.1;" class="FclimateCrisis">-</font>
+        <font class="FcrimsonPro">Projects</font>
+    </div>
+    <main id="mainBoxContainer" style="animation:fadingN 2s ease;animation-delay:2.5s;">
         <div id="navSystemContainer" class="weightLight">
             <a id="homeNav" class="currentPage">Home</a>
             <a id="loveCalcNav">MF</a>
             <a id="shopNav">Workshop</a>
             <a id="aboutNav">About</a>
         </div>
-        <div id="mainBox"></div>
-        <div class="justCenter algCenter" style="position:absolute !important;display:flex;width:100%;height:100%;background-color:black;" id="splashScreen"><font style="animation: fadingNrise2rem 2s;z-index:2;font-size:2rem;"><font class="FclimateCrisis">Tucca <font class="FmontserratSubrayada" style="font-weight:700;">Studio</font></font></div>
-
+        <div id="mainBox" style="animation:slideIn 2s ease;animation-delay:2.5s;"></div>
+        <div class="justCenter algCenter" style="position:absolute !important;display:flex;width:100%;height:100%;bottom:0;top:0;left:0;right:0;background-color:black;" id="splashScreen">
+            <font style="animation: fadingNrise2rem 3s ease;z-index:2;font-size:2rem;">
+                <font class="FclimateCrisis">Tucca </font><font class="FmontserratSubrayada" style="font-weight:700;">Studio</font>
+            </font>
+        </div>
     </main>
 
     <script type="text/javascript">
         "use strict";
-        setTimeout(()=>{document.getElementById("splashScreen").style.display="none";},2500);
+        setTimeout(()=>{document.getElementById("splashScreen").style.display="none";},2900);
         document.getElementById("mainBox").innerHTML=getDoc("homeDoc");
-        const homeNav=document.getElementById('homeNav')    ;
+        window.addEventListener("DOMContentLoaded",()=>{const homeNav=document.getElementById('homeNav');
         const loveCalcNav=document.getElementById("loveCalcNav");
         const shopNav=document.getElementById("shopNav");
         const aboutNav=document.getElementById("aboutNav");
         homeNav.addEventListener("click",()=>{changePage('homeNav',"mainBox")});
         loveCalcNav.addEventListener("click",()=>{changePage('loveCalcNav',"mainBox")});
         shopNav.addEventListener("click",()=>{changePage('shopNav',"mainBox")});
-        aboutNav.addEventListener("click",()=>{changePage('aboutNav',"mainBox")});
+        aboutNav.addEventListener("click",()=>{changePage('aboutNav',"mainBox")});});
         function changePage(givenId,mainBoxId){
             const tempDoc=document.getElementById(givenId);
             const prevDoc=document.querySelector(".currentPage");
@@ -110,12 +118,12 @@
                 <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
                     <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam1" autoplay></video>
                     <canvas id="canvas1" style="display:none"></canvas>
-                    <button id="streamLoveCam1" class="absolute simpleButton" style="bottom:7%; width:4rem;max-width:20%;height:15%;" onclick="captureLoveCam1('loveCam1')">Capture</button>
+                    <button id="streamLoveCam1" class="absolute simpleButton" style="bottom:7%; width:20%;height:15%;" onclick="captureLoveCam1('loveCam1')">Capture</button>
                 </div>
                 <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
                     <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam2" autoplay></video>
                     <canvas id="canvas2" style="display:none"></canvas>
-                    <button id="streamLoveCam2" class="absolute simpleButton" style="bottom:7%;width:4rem;max-width:20%;height:15%;" onclick="captureLoveCam2('loveCam2')">Capture</button>
+                    <button id="streamLoveCam2" class="absolute simpleButton" style="bottom:7%;width:20%;height:15%;" onclick="captureLoveCam2('loveCam2')">Capture</button>
                 </div>
             </div>
             <div style="height:5%"></div>
