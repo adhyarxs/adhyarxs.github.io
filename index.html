@@ -1,66 +1,257 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,700;0,900;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
-		<title>Apaaja</title>
-<style>*{box-sizing:border-box;}body{font-family:"Source Code Pro", "Roboto", sans-serif;margin:0;padding:0;}
-button{background-color:rgba(92,195,255,0.6);color:white;font-weight:bold;
-	border-style:none;border-radius:20px !important;
-	width:100px;height:50px;transition: ease width height;
-	transition-duration:1s;margin:20px;}
-button:hover{width:110px;height:55px;transition:ease width height;transition-duration: 1s;}
-button:active{background-color:#D9BB9C;}
-#play{padding: 3vh 3vw}</style>
-	</head>
-	<body id="body1">
-		<header style="background-color:rgba(100,100,100,0.5);text-align:center;">
-			<font style="font-weight:light;font-size:1.5rem;text-align:center;margin:10px;">Satriaadhyaksa</font>
-		</header>
-	<div id="play">
-		<div id="input1" style="background-color:grey;width=10vw;height:100px;" contentEditable="true">ketik password...</div>
-	</div>
-	<script>
-		var num=0;
-		var next=false;
-		var home=false;
-		var documentelementbyfayza = document.getElementById("input1").innerHTML;
-		var doccheckres = documentelementbyfayza.includes("fayza");
-		
-		const myInterval=setInterval(function(){documentelementbyfayza= document.getElementById("input1").innerHTML;doccheckres=documentelementbyfayza.includes("fayza");console.log(doccheckres);console.log(documentelementbyfayza);if(doccheckres===true){changeToHome();home=true;}},1000);
-		if(home===true){clearInterval(myInterval);}
-		function changeToHome(){
-		document.getElementById('play').innerHTML = "<h1 id='text1'>HI THERE :P</h1><button id='butt1'>HI JUGA</button>";
-		document.getElementById("butt1").addEventListener("click", nextdetect);
-		}
-		function nextdetect(){
-					if(next===false){num=num+1;}
-			next=true;
-			console.log(num);
-				if(num===1 && next===true){
-					document.getElementById("play").innerHTML=document.getElementById("play").innerHTML + "<button id='butt2'></button>";
-					document.getElementById("text1").innerHTML="Hmm, Fayza? :P";
-					document.getElementById("butt1").innerHTML="Iya dong";
-					document.getElementById("butt1").addEventListener("click",nextdetect);
-					document.getElementById("butt2").innerHTML="Bukann";
-					document.getElementById("butt2").addEventListener("click", function(){(document.getElementById("butt2").style.marginTop=="") ? (document.getElementById('butt2').style.marginTop="100px"):(document.getElementById("butt2").style.marginTop=parseInt(document.getElementById("butt2").style.marginTop)+parseInt("100") + "px");});next=false;
+    <head>
+        <title>SMP Negeri 31 Bandung</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="author" content="Tucca Studio">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            *{box-sizing:border-box;webkit-box-sizing:border-box;}
+            /* If you need explanation why margin and padding set to 0 in body tag style, here is why */
+            /* body tag default margin and padding is not set to zero and create a space around the page */
+            body{margin:0;padding:0;background-color:black;font-size:1rem;font-family:"Montserrat","Crimson Pro",sans-serif;color:white;}
+            /* Here mainBox have width 90% but max-width:60rem, why? bcoz it's make the page more respons based on browser root font size */
+            /* same reason used for mainBox height and max-height property */
+            #mainBox{background-color:white;color:black;font-size:1rem;font-weight:regular;width:90%;max-width:60rem;height:80%;max-height:30rem;border-radius:2vw;}
+            /* here mainBoxContainer must be 100% because it was like the main background of all the element inside this page */
+            #mainBoxContainer{display:flex;justify-content:center;align-items:center;width:100%;height:100vh;flex-direction:column;}
+            /* This navSystemContainer id have width and height property with rem, because it will adapt with browser font size */
+            /* This make the web more responsible but the space, margin and other are still consistent */
+            #navSystemContainer{width:18rem;height:4rem;display:flex;justify-content:space-between;align-items:center;font-size:1rem;}
+            /* So here, our property is: */
+            #navSystemContainer a{opacity:0.5;transition: opacity 1s;}
+            #navSystemContainer .currentPage{opacity:1;font-size:1rem;/*font-family:"Montserrat Subrayada","Montserrat",sans-serif;*/transition: opacity 1s;}
+            #navSystemContainer .currentPage:hover{opacity:0.5;}
+            #navSystemContainer a:hover{opacity:1;}
+            /*Container For inner Content of MainBox*/
+            #innerBoxContainer{display:flex;align-items:center;width:100%;height:100%;flex-direction:column;padding:2%;}
+            #innerBoxContainer .FclimateCrisis{font-size:1.5rem;}
+            /* 
+        /** Font **/
+        .FcrimsonPro{font-family:"Crimson Pro", sans-serif !important;}
+        .Fmontserrat{font-family:"Montserrat", sans-serif !important;}
+        .FmontserratSubrayada{font-family:"Montserrat Subrayada", sans-serif !important;}
+        .FclimateCrisis{font-family:"Climate Crisis", sans-serif !important;}
+        .weightLight{font-weight:300;}
+
+            /**********/
+            /** Display **/
+            .flex{display: flex !important;}
+            .block{display:block !important;}
+            .inlineBlock{display: inline-block !important;}
+            .inline{display: inline !important;}
+            /*************/
+            /** Position **/
+            .relative{position:relative !important;}
+            .absolute{position:absolute !important;}
+            .sticky{position:sticky !important;}
+            /**************/
+
+        /** Flexbox **/
+        .dirColumn{flex-direction: column;}
+        .justCenter{justify-content: center;}
+        .justBetween{justify-content: space-between;}
+        .justAround{justify-content: space-around;}
+        .algCenter{align-items: center;}
+        /*************/
+        /** Custom Styling **/
+        .simpleButton{background-color:rgba(255,255,255,0.5);border:none;border-radius:0.8vw;}
+        /** Keyframes **/
+        @keyframes fadingN{
+            from{opacity:0;}to{opacity:1;}
+        }
+        @keyframes fadingNrise2rem{
+            from{opacity:0;font-size:1.8rem;}to{opacity:1;font-size:2rem;}
+        }
+        </style>
+</head>
+<body class="bgDefault colWhite">
+    <div class="absolute" style="top:2rem;left:2rem;"><font class="FclimateCrisis">Archi</font><font style="opacity:0.1;" class="FclimateCrisis">-</font><font class="FcrimsonPro">Projects</font></div>
+    <main id="mainBoxContainer">
+        <div id="navSystemContainer" class="weightLight">
+            <a id="homeNav" class="currentPage">Home</a>
+            <a id="loveCalcNav">MF</a>
+            <a id="shopNav">Workshop</a>
+            <a id="aboutNav">About</a>
+        </div>
+        <div id="mainBox"></div>
+        <div class="justCenter algCenter" style="position:absolute !important;display:flex;width:100%;height:100%;background-color:black;" id="splashScreen"><font style="animation: fadingNrise2rem 2s;z-index:2;font-size:2rem;"><font class="FclimateCrisis">Tucca <font class="FmontserratSubrayada" style="font-weight:700;">Studio</font></font></div>
+
+    </main>
+
+    <script type="text/javascript">
+        "use strict";
+        setTimeout(()=>{document.getElementById("splashScreen").style.display="none";},2500);
+        document.getElementById("mainBox").innerHTML=getDoc("homeDoc");
+        const homeNav=document.getElementById('homeNav')    ;
+        const loveCalcNav=document.getElementById("loveCalcNav");
+        const shopNav=document.getElementById("shopNav");
+        const aboutNav=document.getElementById("aboutNav");
+        homeNav.addEventListener("click",()=>{changePage('homeNav',"mainBox")});
+        loveCalcNav.addEventListener("click",()=>{changePage('loveCalcNav',"mainBox")});
+        shopNav.addEventListener("click",()=>{changePage('shopNav',"mainBox")});
+        aboutNav.addEventListener("click",()=>{changePage('aboutNav',"mainBox")});
+        function changePage(givenId,mainBoxId){
+            const tempDoc=document.getElementById(givenId);
+            const prevDoc=document.querySelector(".currentPage");
+            const docContainer=document.getElementById(mainBoxId);
+            prevDoc.classList.remove("currentPage");tempDoc.classList.remove("currentPage");tempDoc.classList.add("currentPage");
+            
+            if(givenId=="homeNav"){docContainer.innerHTML=getDoc("homeDoc");}if(givenId=="loveCalcNav"){docContainer.innerHTML=getDoc("loveCalcDoc");}if(givenId=="shopNav"){
+            docContainer.innerHTML=getDoc("shopDoc");}if(givenId=="aboutNav"){docContainer.innerHTML=getDoc("aboutDoc");}
+        }
+        function getDoc(code){
+            if(code=="homeDoc"){
+            return `<div id="innerBoxContainer" style="animation:fadingN 2s;"><font class="FclimateCrisis">Love Calcaltor</font>
+            <div style="height:5%;"></div>
+            <div style="width:100%;height:50%;" class="flex justBetween algCenter">
+                <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
+                    <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam1" autoplay></video>
+                    <canvas id="canvas1" style="display:none"></canvas>
+                    <button id="streamLoveCam1" class="absolute simpleButton" style="bottom:7%; width:20%;height:15%;" onclick="captureLoveCam1('loveCam1')">Capture</button>
+                </div>
+                <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
+                    <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam2" autoplay></video>
+                    <canvas id="canvas2" style="display:none"></canvas>
+                    <button id="streamLoveCam2" class="absolute simpleButton" style="bottom:7%;width:20%;height:15%;" onclick="captureLoveCam2('loveCam2')">Capture</button>
+                </div>
+            </div>
+            <div style="height:5%"></div>
+            <div style="width:100%;height:10%;" class="flex justBetween algCenter">
+                <div style="width:50%;" class="flex justCenter algCenter">
+                    <input id="inputName1" style="width:80%;height:;value="" placeholder="Ketik nama disini...">
+                </div>
+                <div style="width:50%;" class="flex justCenter algCenter">
+                    <input id="inputName2" style="width:80%;height:;value="" placeholder="Ketik nama disini...">
+                </div>
+            </div>
+            <div style="width:100%;height:10%;" class="flex justCenter algCenter">
+                <h1 id="calcResult">0%</h1>
+            </div>
+            <div style="width:100%;height:10%;" class="flex justCenter algCenter">
+            <button class="simpleButton" style="background-color:rgba(0,0,0,0.6);width:30%;height:100%;" id="calculateLove" onclick="calculateLove('loveCam1','loveCam2','inputName1','inputName2','calcResult')"><font class="FmontserratSubrayada" style="color:white;">Calculate</font></button>
+            </div>
+            </div>`}
+            if(code=="loveCalcDoc"){return "<h1>Menfess Page</h1>"}
+            if(code=="shopDoc"){return "<h1>Shop page</h1>"}
+            if(code=="aboutDoc"){return "<h1>About doc</h1>"}
+        }
+        var statusCam1="start",statusCam2="start";
+        function captureLoveCam1(camId){
+            const constraints={video:{width:640,height:480}};
+            const camDoc=document.getElementById(camId);
+            if(statusCam1=="start"){
+            camDoc.style.cssText += "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;"
+            navigator.mediaDevices.getUserMedia(constraints).then((stream)=>{
+            camDoc.srcObject=stream;camDoc.play()}).catch(function(err0r){});
+            statusCam1="pause";
+            }else{if(statusCam1=="pause"){camDoc.pause();}}
+        }
+        function captureLoveCam2(camId){
+            const constraints={video:{width:2880,height:1800}};
+            const camDoc=document.getElementById(camId);
+            if(statusCam2=="start"){ 
+            camDoc.style.cssText += "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;"
+            navigator.mediaDevices.getUserMedia(constraints).then((stream)=>{
+            camDoc.srcObject=stream;camDoc.play()}).catch(function(err0r){});
+            statusCam2="pause";
+            }else{if(statusCam2=="pause"){camDoc.pause();}}
+        }
+        function calculateLove(camOneId,camTwoId,nameOneId,nameTwoId,resultId){
+            const camOneIdDoc=document.getElementById(camOneId);
+            const camTwoIdDoc=document.getElementById(camTwoId);
+            const nameDoc1=document.getElementById(nameOneId);
+            const nameDoc2=document.getElementById(nameTwoId);
+            const resultDoc=document.getElementById(resultId);
+            calculateLoveCam(camOneIdDoc,camTwoIdDoc);
+            let resultLove=loveByName(nameDoc1.value,nameDoc2.value);
+            resultDoc.innerHTML=resultLove+"%";
+        }
+        function calculateLoveCam(videoDoc1,videoDoc2){
+            const canvasDoc1=document.getElementById("canvas1"); 
+            const canvasDoc2=document.getElementById("canvas2");
+            canvasDoc1.width=videoDoc1.videoWidth;
+            canvasDoc2.width=videoDoc2.videoWidth;
+            canvasDoc1.height=videoDoc1.videoHeight;
+            canvasDoc2.height=videoDoc2.videoHeight;
+            const ctx1 = canvasDoc1.getContext('2d');
+            const ctx2 = canvasDoc2.getContext('2d');
+            ctx1.drawImage(videoDoc1,0,0);
+            ctx2.drawImage(videoDoc2,0,0);
+            const imageData1 = ctx1.getImageData(0, 0, canvasDoc1.width, canvasDoc1.height);
+            const imageData2 = ctx2.getImageData(0, 0, canvasDoc2.width, canvasDoc2.height);
+            const pixels1 = imageData1.data;
+            const pixels2 = imageData2.data;
+            
+
+            /*for(var i = 0, il = pixels1.length; i < il; i++) {
+                console.log(pixels1[i]);
+            }*/
+        }
+        function loveByName(name1Tmp,name2Tmp){
+			const name1Str=name1Tmp.trim().toLowerCase();
+			const name2Str=name2Tmp.trim().toLowerCase();
+			const totalNameStr=name1Str+name2Str;
+			const loveInit=["m","i","n","v","x"];
+            const loveInit2=["z","y","l","p"];
+			let percentage=0;
+            if(name1Str.length>=name2Str.length){
+    			for(let i=0;i<=name1Str.length-1;i++){
+    			    for(let l=0;l<=name2Str.length-1;l++){
+    			    	if(name1Str[i]===name2Str[l]){
+    			    		percentage=percentage+(40/name1Str.length);
+    			    		break;
+    			    	}
+    			    }
+			    }
+                for(let i=0;i<=name2Str.length-1;i++){
+                    for(let l=0;l<=name1Str.length-1;l++){
+                        if(name2Str[i]===name1Str[l]){
+                            percentage=percentage+(30/name2Str.length);
+                            break;
+                        }
+                    }
+                }
+            }else{if(name2Str.length>=name1Str.length){
+                for(let i=0;i<=name2Str.length-1;i++){
+                    for(let l=0;l<=name1Str.length-1;l++){
+                        if(name2Str[i]===name1Str[l]){
+                            percentage=percentage+(40/name2Str.length);
+                            break;
+                        }
+                    }
+                }
+                for(let i=0;i<=name1Str.length-1;i++){
+    			    for(let l=0;l<=name2Str.length-1;l++){
+    			    	if(name1Str[i]===name2Str[l]){
+    			    		percentage=percentage+(30/name1Str.length);
+    			    		break;
+    			    	}
+    			    }
+			    }
+            }}
+			for(let i=0;i<=totalNameStr.length-1;i++){
+			for(let l=0;l<=loveInit.length-1;l++){
+				if(totalNameStr[i]===loveInit[l]){
+				percentage=percentage+(15/totalNameStr.length);
+					break;
 				}
-				if(num===2 && next===true){
-											document.getElementById("body1").style.backgroundColor = "#222222";
-											document.getElementById("body1").style.color = "white";
-											document.getElementById("butt2").style.marginTop = "0";
-											document.getElementById("text1").innerHTML = "mpk babuuuu";
-											document.getElementById("butt1").innerHTML = "Emang";
-							document.getElementById("butt1").addEventListener("click",function(){window.alert("HAHAHA")});
-											document.getElementById("butt2").innerHTML = "GA YA SIALANN";
-											document.getElementById("butt2").addEventListener("click", function(){
-											(document.getElementById("butt2").style.marginTop=="") ? (document.getElementById('butt2').style.marginTop="100px"):(document.getElementById("butt2").style.marginTop=parseInt(document.getElementById("butt2").style.marginTop)+parseInt("100") + "px");
-											});next=false;
-								}
+			}
+			}
+            for(let i=0;i<=totalNameStr.length-1;i++){
+			for(let l=0;l<=loveInit2.length-1;l++){
+				if(totalNameStr[i]===loveInit2[l]){
+				percentage=percentage+(15/totalNameStr.length);
+					break;
+				}
+			}
+			}
+			percentage=parseInt(percentage.toString().substr(0,3));
+			return percentage;
 		}
-	</script>
-	</body>
+
+    </script>
+</body>
 </html>
