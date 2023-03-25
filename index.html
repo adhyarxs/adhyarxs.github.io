@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Strosyst Projects</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="author" content="Tucca Studio">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            *{box-sizing:border-box;webkit-box-sizing:border-box;}
+            /* If you need explanation why margin and padding set to 0 in body tag style, here is why */
+            /* body tag default margin and padding is not set to zero and create a space around the page */
+            body{margin:0;padding:0;background-color:black;background:url(https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg?auto=compress&cs=tinysrgb&w=640&h=441&dpr=1) no-repeat;background-attachment:fixed;background-size:cover;font-size:1rem;font-family:"Montserrat","Crimson Pro",sans-serif;color:white;backdrop-filter:blur(10px);}
+            input{outline:none !important;}
+            /* Here mainBox have width 90% but max-width:60rem, why? bcoz it's make the page more respons based on browser root font size */
+            /* same reason used for mainBox height and max-height property */
+            #mainBox{background-color:rgba(255,255,255,0.1);backdrop-filter:blur(20px);color:black;font-size:1rem;font-weight:regular;width:90%;max-width:60rem;height:80%;max-height:30rem;border-radius:2vw;}
+            /* here mainBoxContainer must be 100% because it was like the main background of all the element inside this page */
+            #mainBoxContainer{display:flex;justify-content:center;align-items:center;width:100%;height:100vh;flex-direction:column;}
+            /* This navSystemContainer id have width and height property with rem, because it will adapt with browser font size */
+            /* This make the web more responsible but the space, margin and other are still consistent */
+            #navSystemContainer{width:18rem;height:4rem;display:flex;justify-content:space-between;align-items:center;font-size:1rem;}
+            /* So here, our property is: */
+            #navSystemContainer a{opacity:0.5;transition: opacity 1s;}
+            #navSystemContainer .currentPage{opacity:1;font-size:1rem;/*font-family:"Montserrat Subrayada","Montserrat",sans-serif;*/transition: opacity 1s;}
+            #navSystemContainer .currentPage:hover{opacity:0.5;}
+            #navSystemContainer a:hover{opacity:1;}
+            /*Container For inner Content of MainBox*/
+            #innerBoxContainer{display:flex;align-items:center;width:100%;height:100%;flex-direction:column;padding:2%;}
+            #innerBoxContainer .FclimateCrisis{font-size:1.5rem;}
+            /* 
+        /** Font **/
+        .FcrimsonPro{font-family:"Crimson Pro", sans-serif !important;}
+        .Fmontserrat{font-family:"Montserrat", sans-serif !important;}
+        .FmontserratSubrayada{font-family:"Montserrat Subrayada", sans-serif !important;}
+        .FclimateCrisis{font-family:"Climate Crisis", sans-serif !important;}
+        .weightLight{font-weight:300;}
+
+            /**********/
+            /** Display **/
+            .flex{display: flex !important;}
+            .block{display:block !important;}
+            .inlineBlock{display: inline-block !important;}
+            .inline{display: inline !important;}
+            /*************/
+            /** Position **/
+            .relative{position:relative !important;}
+            .absolute{position:absolute !important;}
+            .sticky{position:sticky !important;}
+            /**************/
+
+        /** Flexbox **/
+        .dirColumn{flex-direction: column;}
+        .justCenter{justify-content: center;}
+        .justBetween{justify-content: space-between;}
+        .justAround{justify-content: space-around;}
+        .algCenter{align-items: center;}
+        /*************/
+        /** Custom Styling **/
+        .simpleButton{background-color:rgba(255,255,255,0.5);border:none;border-radius:0.8vw;}
+        .borderedButton{background-color:rgba(255,255,255,0.1);border:1px solid white;border-radius:0.5vw;}
+        .simpleInput{background-color:transparent !important;border:none;border-bottom:solid black 2px;padding:0.7vw 0.7vh;}
+        /** Keyframes **/
+        @keyframes fadingN{
+            from{opacity:0;}to{opacity:1;}
+        }
+        @keyframes fadingNrise2rem{
+            0%{opacity:0;font-size:1.8rem;}50%{opacity:1;font-size:2rem;}100%{opacity:0;}
+        }
+        @keyframes slideIn{from{transform:translate(5vw,5vh);}to{transform:translate(0,0);}}
+        </style>
+</head>
+<body class="colWhite">
+    <div class="absolute" style="top:2rem;left:2rem;">
+        <font class="FclimateCrisis">Strosyst</font>
+        <font style="opacity:0.1;" class="FclimateCrisis">-</font>
+        <font class="FcrimsonPro">Projects</font>
+    </div>
+    <main id="mainBoxContainer" style="">
+        <div id="navSystemContainer" class="weightLight">
+            <a id="homeNav" class="currentPage">Home</a>
+            <a id="loveCalcNav">MF</a>
+            <a id="shopNav">Workshop</a>
+            <a id="aboutNav">About</a>
+        </div>
+        <div id="mainBox" style=""></div>
+    </main>
+    <div class="justCenter algCenter" style="position:absolute !important;display:flex !important;flex-direction:row;width:100vw;height:100vh;background-color:rgba(0,0,0,1) !important;" id="splashScreen">
+            <font style="animation: fadingNrise2rem 3s ease;font-size:2rem;text-align:center;">
+                <font class="FmontserratSubrayada" style="text-align:center;font-weight:700;">Fxstrosyst Organization</font>
+            </font>
+    </div>
+
+
+    <script type="text/javascript">
+        "use strict";
+        document.getElementById("mainBoxContainer").style.display="none";
+        setTimeout(()=>{document.getElementById("splashScreen").style.display="none";document.getElementById("mainBoxContainer").style.display="flex";},2900);
+        document.getElementById("mainBox").innerHTML=getDoc("homeDoc");
+        window.addEventListener("DOMContentLoaded",()=>{const homeNav=document.getElementById('homeNav');
+        const loveCalcNav=document.getElementById("loveCalcNav");
+        const shopNav=document.getElementById("shopNav");
+        const aboutNav=document.getElementById("aboutNav");
+        homeNav.addEventListener("click",()=>{changePage('homeNav',"mainBox")});
+        loveCalcNav.addEventListener("click",()=>{changePage('loveCalcNav',"mainBox")});
+        shopNav.addEventListener("click",()=>{changePage('shopNav',"mainBox")});
+        aboutNav.addEventListener("click",()=>{changePage('aboutNav',"mainBox")});});
+        function changePage(givenId,mainBoxId){
+            const tempDoc=document.getElementById(givenId);
+            const prevDoc=document.querySelector(".currentPage");
+            const docContainer=document.getElementById(mainBoxId);
+            prevDoc.classList.remove("currentPage");tempDoc.classList.remove("currentPage");tempDoc.classList.add("currentPage");
+            
+            if(givenId=="homeNav"){docContainer.innerHTML=getDoc("homeDoc");}if(givenId=="loveCalcNav"){docContainer.innerHTML=getDoc("loveCalcDoc");}if(givenId=="shopNav"){
+            docContainer.innerHTML=getDoc("shopDoc");}if(givenId=="aboutNav"){docContainer.innerHTML=getDoc("aboutDoc");}
+        }
+        function getDoc(code){
+            if(code=="homeDoc"){
+            return `<div id="innerBoxContainer" style="animation:fadingN 2s;"><font class="Fmontserrat" style="color:white;font-weight:bold;font-size:1.5rem;">Love <font style="font-weight:400">Calculator</font></font>
+            <div style="height:5%;"></div>
+            <div style="width:100%;height:50%;" class="flex justBetween algCenter">
+                <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
+                    <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam1" autoplay></video>
+                    <canvas id="canvas1" style="display:none"></canvas>
+                    <font id="alertInTheMiddleOfTheCam1" class="absolute FMontserratSubrayada" style="top:7%;font-size:1rem;color:white;"></font>
+                    <button id="streamLoveCam1" class="absolute borderedButton" style="color:white;bottom:7%; min-width:4rem;width:20%;height:15%;" onclick="captureLoveCam1('loveCam1')">Capture</button>
+                </div>
+                <div style="width:50%;height:100%" class="flex justCenter algCenter relative">
+                    <video style="object-fit:cover;width:80%;height:90%;background-color:black;" id="loveCam2" autoplay></video>
+                    <canvas id="canvas2" style="display:none"></canvas>
+                    <font id="alertInTheMiddleOfTheCam2" class="absolute FMontserratSubrayada" style="top:7%;font-size:1rem;color:white;"></font>
+                    <button id="streamLoveCam2" class="absolute borderedButton" style="color:white;bottom:7%;min-width:4rem;width:20%;height:15%;" onclick="captureLoveCam2('loveCam2')">Capture</button>
+                </div>
+            </div>
+            <div style="height:5%"></div>
+            <div style="width:100%;height:10%;" class="flex justBetween algCenter">
+                <div style="width:50%;" class="flex justCenter algCenter">
+                    <input id="inputName1" style="width:80%;height:;value="" placeholder="Ketik nama disini..." class="simpleInput">
+                </div>
+                <div style="width:50%;" class="flex justCenter algCenter">
+                    <input id="inputName2" style="width:80%;height:;value="" placeholder="Ketik nama disini..." class="simpleInput">
+                </div>
+            </div>
+            <div style="width:100%;height:10%;" class="flex justCenter algCenter">
+                <h1 id="calcResult">0%</h1>
+            </div>
+            <div style="width:100%;height:10%;" class="flex justCenter algCenter">
+            <button class="simpleButton" style="background-color:rgba(0,0,0,0.6);width:30%;height:100%;" id="calculateLove" onclick="calculateLove('loveCam1','loveCam2','inputName1','inputName2','calcResult')"><font class="FmontserratSubrayada" style="color:white;">Calculate</font></button>
+            </div>
+            </div>`}
+            if(code=="loveCalcDoc"){return "<h1>Menfess Page</h1>"}
+            if(code=="shopDoc"){return "<h1>Shop page</h1>"}
+            if(code=="aboutDoc"){return "<h1>About doc</h1>"}
+        }
+        var statusCam1="start",statusCam2="start";
+        function captureLoveCam1(camId){
+            const constraints={video:{width:640,height:640}};
+            const camDoc=document.getElementById(camId);
+            document.getElementById("alertInTheMiddleOfTheCam1").innerText="";
+            camDoc.style.cssText += "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
+            navigator.mediaDevices.getUserMedia(constraints).then((stream)=>{
+                if(statusCam1=="start"){camDoc.srcObject=stream;camDoc.play();statusCam1="needPause";
+                }else{
+                    if(statusCam1=="needPause"){
+                        camDoc.pause();
+                        document.getElementById("streamLoveCam1").innerHTML="Recapture";statusCam1="recapture";
+                    }else{
+                        if(statusCam1=="recapture"){camDoc.play();statusCam1="needPause";document.getElementById("streamLoveCam1").innerHTML="Capture";}
+                    }
+                }
+            }).catch(function(err0r){});
+        }
+        function captureLoveCam2(camId2){
+            const constraints={video:{width:640,height:640}};
+            const camDoc2=document.getElementById(camId2); 
+            document.getElementById("alertInTheMiddleOfTheCam2").innerHTML="";
+            camDoc2.style.cssText += "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
+            navigator.mediaDevices.getUserMedia(constraints).then((stream)=>{
+                if(statusCam2=="start"){camDoc2.srcObject=stream;camDoc2.play();statusCam2="needPause";
+                }else{
+                    if(statusCam2=="needPause"){
+                        camDoc2.pause();
+                        document.getElementById("streamLoveCam2").innerHTML="Recapture";statusCam2="recapture";
+                    }else{
+                        if(statusCam2=="recapture"){camDoc2.play();statusCam2="needPause";document.getElementById("streamLoveCam2").innerHTML="Capture";}
+                    }
+                }
+            }).catch(function(err0r){});
+        }
+        function calculateLove(camOneId,camTwoId,nameOneId,nameTwoId,resultId){
+            const camOneIdDoc=document.getElementById(camOneId);
+            const camTwoIdDoc=document.getElementById(camTwoId);
+            const nameDoc1=document.getElementById(nameOneId);
+            const nameDoc2=document.getElementById(nameTwoId);
+            const resultDoc=document.getElementById(resultId);
+            if(camOneIdDoc.videoWidth<=1 && camOneIdDoc.videoHeight<=1){document.getElementById("alertInTheMiddleOfTheCam1").innerText="Kosong";
+            if(camTwoIdDoc.videoWidth<=1 && camTwoIdDoc.videoHeight<=1){document.getElementById("alertInTheMiddleOfTheCam2").innerText="Kosong";}}else{
+            if(camTwoIdDoc.videoWidth<=1 && camTwoIdDoc.videoHeight<=1){document.getElementById("alertInTheMiddleOfTheCam2").innerText="Kosong";
+            if(camOneIdDoc.videoWidth<=1 && camOneIdDoc.videoHeight<=1){document.getElementById("alertInTheMiddleOfTheCam1").innerText="Kosong";}}else{
+            calculateLoveCam(camOneIdDoc,camTwoIdDoc);}}
+            let resultLove=loveByName(nameDoc1.value,nameDoc2.value);
+            resultDoc.innerHTML=resultLove+"%";
+        }
+        function calculateLoveCam(videoDoc1,videoDoc2){
+            const canvasDoc1=document.getElementById("canvas1"); 
+            const canvasDoc2=document.getElementById("canvas2");
+            canvasDoc1.width=videoDoc1.videoWidth;
+            canvasDoc2.width=videoDoc2.videoWidth;
+            canvasDoc1.height=videoDoc1.videoHeight;
+            canvasDoc2.height=videoDoc2.videoHeight;
+            const ctx1 = canvasDoc1.getContext('2d');
+            const ctx2 = canvasDoc2.getContext('2d');
+            ctx1.drawImage(videoDoc1,0,0);
+            ctx2.drawImage(videoDoc2,0,0);
+            const imageData1 = ctx1.getImageData(0, 0, canvasDoc1.width, canvasDoc1.height);
+            const imageData2 = ctx2.getImageData(0, 0, canvasDoc2.width, canvasDoc2.height);
+            const pixels1 = imageData1.data;
+            const pixels2 = imageData2.data;
+            
+
+            /*for(var i = 0, il = pixels1.length; i < il; i++) {
+                console.log(pixels1[i]);
+            }*/
+        }
+        function loveByName(name1Tmp,name2Tmp){
+			const name1Str=name1Tmp.trim().toLowerCase();
+			const name2Str=name2Tmp.trim().toLowerCase();
+			const totalNameStr=name1Str+name2Str;
+			const loveInit=["m","i","n","v","x"];
+            const loveInit2=["z","y","l","p"];
+			let percentage=0;
+            if(name1Str.length>=name2Str.length){
+    			for(let i=0;i<=name1Str.length-1;i++){
+    			    for(let l=0;l<=name2Str.length-1;l++){
+    			    	if(name1Str[i]===name2Str[l]){
+    			    		percentage=percentage+(40/name1Str.length);
+    			    		break;
+    			    	}
+    			    }
+			    }
+                for(let i=0;i<=name2Str.length-1;i++){
+                    for(let l=0;l<=name1Str.length-1;l++){
+                        if(name2Str[i]===name1Str[l]){
+                            percentage=percentage+(30/name2Str.length);
+                            break;
+                        }
+                    }
+                }
+            }else{if(name2Str.length>=name1Str.length){
+                for(let i=0;i<=name2Str.length-1;i++){
+                    for(let l=0;l<=name1Str.length-1;l++){
+                        if(name2Str[i]===name1Str[l]){
+                            percentage=percentage+(40/name2Str.length);
+                            break;
+                        }
+                    }
+                }
+                for(let i=0;i<=name1Str.length-1;i++){
+    			    for(let l=0;l<=name2Str.length-1;l++){
+    			    	if(name1Str[i]===name2Str[l]){
+    			    		percentage=percentage+(30/name1Str.length);
+    			    		break;
+    			    	}
+    			    }
+			    }
+            }}
+			for(let i=0;i<=totalNameStr.length-1;i++){
+			for(let l=0;l<=loveInit.length-1;l++){
+				if(totalNameStr[i]===loveInit[l]){
+				percentage=percentage+(15/totalNameStr.length);
+					break;
+				}
+			}
+			}
+            for(let i=0;i<=totalNameStr.length-1;i++){
+			for(let l=0;l<=loveInit2.length-1;l++){
+				if(totalNameStr[i]===loveInit2[l]){
+				percentage=percentage+(15/totalNameStr.length);
+					break;
+				}
+			}
+			}
+			percentage=parseInt(percentage.toString().substr(0,3));
+			return percentage;
+		}
+
+    </script>
+</body>
+</html>
